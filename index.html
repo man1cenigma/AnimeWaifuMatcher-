@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime Waifu Matcher 🌸</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>✨ Anime Waifu Matcher ✨</h1>
+            <p>Answer these questions to find your perfect anime companion!</p>
+        </header>
+
+        <div id="questionnaire" class="questionnaire">
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress"></div>
+                </div>
+                <span id="question-number" class="question-number">1/7</span>
+            </div>
+            
+            <div class="question-container">
+                <h3 id="question" class="question-text"></h3>
+                <div id="options" class="options"></div>
+            </div>
+            
+            <div class="navigation">
+                <button id="prev-btn" class="btn btn-secondary">Previous</button>
+                <button id="next-btn" class="btn btn-primary" disabled>Next</button>
+            </div>
+        </div>
+
+        <div id="result" class="result" style="display: none;">
+            <h2>Your Perfect Anime Waifu Match! 💖</h2>
+            <div class="character-card">
+                <img id="character-image" src="" alt="Your waifu" class="character-image">
+                <div class="character-info">
+                    <h3 id="character-name" class="character-name"></h3>
+                    <p id="character-anime" class="character-anime"></p>
+                    <p id="character-description" class="character-description"></p>
+                    <div class="match-percentage">
+                        <span id="compatibility"></span>% Compatibility Match! 🎯
+                    </div>
+                </div>
+            </div>
+            <button id="restart-btn" class="btn btn-accent">Find Another Waifu! ✨</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

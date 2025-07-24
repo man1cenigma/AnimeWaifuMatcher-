@@ -1,0 +1,370 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background: linear-gradient(135deg, #ffeef5 0%, #ffe1f0 25%, #ffd4e8 50%, #ffb8d6 75%, #ff9ec7 100%);
+    background-image: url('beautiful-anime-sakura-landscape-cartoon-scene (1).jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Anime-style overlay for enhanced aesthetic */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 182, 214, 0.3) 0%, rgba(255, 153, 204, 0.2) 50%, rgba(255, 107, 157, 0.1) 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.container {
+    max-width: 800px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(255, 182, 214, 0.4);
+    padding: 40px;
+    backdrop-filter: blur(15px);
+    border: 2px solid rgba(255, 192, 230, 0.3);
+    position: relative;
+    z-index: 3;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #ff6b9d, #ffb3d9, #ff99cc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 4px rgba(255, 182, 214, 0.3);
+}
+
+header p {
+    font-size: 1.1rem;
+    color: #666;
+    font-weight: 400;
+}
+
+.progress-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.progress-bar {
+    flex: 1;
+    height: 8px;
+    background: #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    background: linear-gradient(90deg, #ff6b9d, #ffb3d9, #ff99cc);
+    border-radius: 4px;
+    transition: width 0.3s ease;
+    width: 0%;
+}
+
+.question-number {
+    font-size: 0.9rem;
+    color: #666;
+    font-weight: 600;
+    min-width: 40px;
+}
+
+.question-container {
+    min-height: 300px;
+    margin-bottom: 30px;
+}
+
+.question-text {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 30px;
+    text-align: center;
+    animation: fadeIn 0.5s ease;
+}
+
+.options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.option-btn {
+    background: #f8f9fa;
+    border: 2px solid #e9ecef;
+    border-radius: 12px;
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    font-weight: 500;
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+.option-btn:hover {
+    border-color: #ff6b9d;
+    background: #fff0f5;
+    transform: translateY(-2px);
+}
+
+.option-btn.selected {
+    border-color: #ff6b9d;
+    background: linear-gradient(135deg, #ff6b9d, #ffb3d9);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.btn {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: inherit;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #ff6b9d, #ffb3d9);
+    color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(255, 107, 157, 0.4);
+}
+
+.btn-primary:disabled {
+    background: #e9ecef;
+    color: #6c757d;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.btn-secondary {
+    background: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: #5a6268;
+    transform: translateY(-2px);
+}
+
+.btn-accent {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    margin-top: 20px;
+}
+
+.btn-accent:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+}
+
+.result {
+    text-align: center;
+    animation: fadeIn 0.8s ease;
+}
+
+.result h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.character-card {
+    background: linear-gradient(135deg, #fff, #f8f9fa);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.character-image {
+    width: 200px;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(45deg, #ffb3d9, #ff99cc);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+    text-align: center;
+}
+
+.character-image::before {
+    content: "Loading...";
+    position: absolute;
+    color: white;
+    font-weight: 600;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.character-image[src=""]::before {
+    opacity: 1;
+}
+
+.character-info {
+    text-align: center;
+}
+
+.character-name {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.character-anime {
+    font-size: 1.1rem;
+    color: #ff6b9d;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.character-description {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    max-width: 500px;
+}
+
+.match-percentage {
+    background: linear-gradient(135deg, #ff6b9d, #ffb3d9);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 25px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    display: inline-block;
+    margin-top: 10px;
+    box-shadow: 0 4px 15px rgba(255, 107, 157, 0.3);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animated falling sakura petals */
+body::after {
+    content: '';
+    position: fixed;
+    top: -10px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(3px 3px at 20px 30px, #ffb3d9, transparent),
+        radial-gradient(2px 2px at 40px 70px, #ff99cc, transparent),
+        radial-gradient(2px 2px at 90px 40px, #ffccdd, transparent),
+        radial-gradient(1px 1px at 130px 80px, #ffb3d9, transparent),
+        radial-gradient(3px 3px at 160px 30px, #ff99cc, transparent),
+        radial-gradient(2px 2px at 300px 120px, #ffccdd, transparent),
+        radial-gradient(1px 1px at 400px 60px, #ffb3d9, transparent);
+    background-repeat: repeat;
+    background-size: 300px 200px;
+    animation: sakuraFall 30s linear infinite;
+    pointer-events: none;
+    z-index: 2;
+}
+
+@keyframes sakuraFall {
+    0% {
+        transform: translateY(-100vh) rotate(0deg);
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+        margin: 10px;
+    }
+    
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    .options {
+        grid-template-columns: 1fr;
+    }
+    
+    .navigation {
+        flex-direction: column;
+    }
+    
+    .character-image {
+        width: 150px;
+        height: 210px;
+    }
+    
+    .progress-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .question-number {
+        align-self: flex-end;
+    }
+}
